@@ -79,10 +79,10 @@ RUN /bin/bash /build-scripts/apt_build_deps.sh install && \
 EXPOSE 8080
 
 # Lock down the web directories
-RUN mkdir -p $APP_DIR $LOG_DIR $UPLOAD_DIR $SESSION_SAVE_PATH \
+RUN mkdir -p $LOG_DIR $UPLOAD_DIR $SESSION_SAVE_PATH \
         $NGINX_USER_CONF_DIR $WWW_HOME\
     && chown -R www-data.www-data \
-        $APP_DIR $UPLOAD_DIR $SESSION_SAVE_PATH $LOG_DIR \
+        $UPLOAD_DIR $SESSION_SAVE_PATH $LOG_DIR \
         $NGINX_USER_CONF_DIR $WWW_HOME \
     && chmod 755 $UPLOAD_DIR $SESSION_SAVE_PATH \
     # For easy access to php with `su www-data -c $CMD`
